@@ -4,6 +4,12 @@ library(dplyr)
 ## READ IN DATA ####
 data = read.table("data/rcourse_lesson2_data.txt", header=T, sep="\t")
 
+# This dataset was extracted from the package babynames like this: 
+library(babynames)
+data(babynames)
+data = babynames %>% 
+  filter(name %in% c("Page", "Ashley", "Hannah", "Florian", "Dominco", "Helena", "Rouven", "Stefanie", "Oona", "Karin", "Prabath", "Teresa", "Caroline", "Karina", "Ahmad", "Charmaine", "Mohammad", "Clarice", "Hanne", "Lav", "Magdalena", "Claudia"))
+
 ## CLEAN DATA ####
 data_clean = data %>%
   # Look at only one name
