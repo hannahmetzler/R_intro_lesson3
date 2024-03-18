@@ -1,2 +1,1 @@
-# R_intro_lesson3
-Expert Skills Training lesson 3 practice materials
+This code is based on lesson 2 of the R course "R for publication" by Page Piccinini. The course information can be found here http://pagepiccinini.com/r-course/. Details about the lesson can be found here http://pagepiccinini.com/r-course/lesson-2-linear-regression/.
