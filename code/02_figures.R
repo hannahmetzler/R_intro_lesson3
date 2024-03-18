@@ -1,6 +1,5 @@
 ## READ IN DATA ####
-source("scripts/rcourse_lesson2_cleaning.R")
-
+source("code/01_cleaning.R")
 
 ## LOAD PACKAGES ####
 library(ggplot2)

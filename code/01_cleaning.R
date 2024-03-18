@@ -2,13 +2,14 @@
 library(dplyr)
 
 ## READ IN DATA ####
-data = read.table("data/rcourse_lesson2_data.txt", header=T, sep="\t")
+data = readr::read_tsv("data/lesson2_data_babynames.txt")
 
-# This dataset was extracted from the package babynames like this: 
-library(babynames)
-data(babynames)
-data = babynames %>% 
-  filter(name %in% c("Page", "Ashley", "Hannah", "Florian", "Dominco", "Helena", "Rouven", "Stefanie", "Oona", "Karin", "Prabath", "Teresa", "Caroline", "Karina", "Ahmad", "Charmaine", "Mohammad", "Clarice", "Hanne", "Lav", "Magdalena", "Claudia"))
+# ##  This dataset was extracted from the package babynames like this: 
+# library(babynames)
+# data(babynames)
+# data = babynames %>%
+#   filter(name %in% c("Page", "Ashley", "Hannah", "Florian", "Dominco", "Helena", "Rouven", "Stefanie", "Oona", "Karin", "Prabath", "Teresa", "Caroline", "Karina", "Ahmad", "Charmaine", "Mohammad", "Clarice", "Hanne", "Lav", "Magdalena", "Claudia"))
+# readr::write_tsv(data, file = "data/lesson2_data_babynames.txt")
 
 ## CLEAN DATA ####
 data_clean = data %>%
@@ -35,3 +36,4 @@ xtabs(~name, data_clean)
 min(data_clean$year)
 
 # Confirm maximum year less than or equal to 2000
+max(data_clean$year)
