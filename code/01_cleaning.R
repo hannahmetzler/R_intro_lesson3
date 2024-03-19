@@ -15,15 +15,11 @@ data = readr::read_tsv("data/lesson2_data_babynames.txt")
 data_clean = data %>%
   # Look at only one name
   filter(name == "Page") %>%
-  # --> PP NOTE: Add in after first xtabs call too crazy
-  # Drop residual information of other names from data frame
-  mutate(name = factor(name)) %>%
   # Only look at data from after year 1900
   filter(year > 1900) %>%
   # Only look at data up to the year 2000 
   filter(year <= 2013) %>% 
-  # Add log transforms for both log base e and log base 10
-  mutate(prop_loge = log(prop)) %>%
+  # Add log transforms for log base 10
   mutate(prop_log10 = log10(prop))
 
 # Confirm the name you've chosen is there (if it is not the number of rows will be 0)

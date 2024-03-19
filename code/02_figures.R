@@ -38,7 +38,7 @@ name_log10.plot = ggplot(data_figs, aes(x = prop_log10)) +
   # Make the figure a histogram
   geom_histogram()
 
-# Write figure to a pdf in the 'figures' folder
+# Call plot
 name_log10.plot
 
 
@@ -59,27 +59,32 @@ year.plot = ggplot(data_figs, aes(x = year, y = prop_log10, colour = sex)) +
   # Additional paramaters for displaying plot
   theme(text=element_text(size=18), title=element_text(size=18))
 
-# Write figure to a pdf in the 'figures' folder
 # Call plot
 year.plot
 
+# Write figure to pdf file in the figures folder: 
+ggsave('figures/scatterplot_proportion_year.pdf', dpi = 300)
 
 # Proportion of 'Page's by sex (categorical predictor)
-sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10)) +
-  # Make the figure a boxplot
-  geom_boxplot(aes(fill = sex)) +
+sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
+  geom_boxplot()+
+  # choose a design
+  theme_classic()+
   # Add a title
-  ggtitle("Proportion of People with\nthe Name 'Page' By Sex") +
+  ggtitle("Popularity of the name 'Page' by sex")+
+  # Customize the y-axis (with a line break)
+  ylab("Proportion of People\nlog base 10 transformed")+
   # Customize the x-axis
   xlab("Sex") +
-  # Customize the y-axis
-  ylab("Proportion of People\n(log base 10 transformed)") +
-  # Remove dark background
-  theme_classic() +
+  # Custom colours for the fill variable (sex)
+  scale_fill_manual(values = c("orange", "blue"))+
   # Additional paramaters for displaying plot
-  theme(text=element_text(size=18), title=element_text(size=18),
-        legend.position="none", legend.key=element_blank())
+  theme(text=element_text(size=10), # text size
+        title=element_text(size=12), # text size for title
+        legend.position="none") # no legend
 
-# Write figure to a pdf in the 'figures' folder
 # Call plot
 sex.plot
+
+# Write figure to pdf file: 
+ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
