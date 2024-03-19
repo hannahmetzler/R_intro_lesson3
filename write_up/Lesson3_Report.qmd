@@ -1,0 +1,38 @@
+---
+title: "Lesson 3 Report"
+author: "Hannah Metzler"
+format: html
+editor: visual
+---
+
+```{r, echo=F}
+load('lesson3_environment.RData')
+```
+
+# Introduction
+
+We analysed how common the name "Page" was in the United States in between 1900 and 2000. We used data from the USA Social Security Administration on baby names. We used linear regression to analyse the change of the name over time, and the difference of the name's popularity between men and women.
+
+# Results
+
+## Prevalence by Year
+
+We built a linear model to test the effect of year on the proportion of people with the name "Page". Proportion was log base 10 transformed, because it was not normally distributed. There was no significant change in the popularity of the name over time. The positive coefficients indicates a slightly increasing slope over time.
+
+```{r, echo=F}
+year.plot
+year.lm_sum
+```
+
+## Prevalence by Sex
+
+There was a significant effect of sex on name popularity. The name was more popular among women then men.
+
+```{r, echo=F}
+sex.plot 
+sex.lm_sum
+```
+
+# Conclusion
+
+In summary, the name "Page" did not become much more popular in the last century. Overall, it was, however, more frequent among women than men.
