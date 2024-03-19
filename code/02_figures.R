@@ -4,7 +4,6 @@ source("code/01_cleaning.R")
 ## LOAD PACKAGES ####
 library(ggplot2)
 
-
 ## ORGANIZE DATA ####
 data_figs = data_clean %>%
   # Update labels for sex to be nicer for figure
@@ -17,17 +16,8 @@ name.plot = ggplot(data_figs, aes(x = prop)) +
   # Make the figure a histogram
   geom_histogram()
 
-# Write figure to a pdf in the 'figures' folder
+# Call the figure
 name.plot
-
-
-# Histogram of dependent variable (number of 'Page's) - e based log transform
-name_loge.plot = ggplot(data_figs, aes(x = prop_loge)) +
-  # Make the figure a histogram
-  geom_histogram()
-
-# Call figure
-name_loge.plot
 
 # Write figure to a pdf in the 'figures' folder
 # ggsave("figures/name_loge.plot.pdf")
@@ -43,7 +33,7 @@ name_log10.plot
 
 
 # Proportion of 'Page's by year (continuous predictor)
-year.plot = ggplot(data_figs, aes(x = year, y = prop_log10, colour = sex)) +
+year.plot = ggplot(data_figs, aes(x = year, y = prop_log10)) +
   # Make the figure a scatterplot
   geom_point() +
   # Add a regression line, 'lm' call makes it linear regression
@@ -57,13 +47,13 @@ year.plot = ggplot(data_figs, aes(x = year, y = prop_log10, colour = sex)) +
   # Remove dark background
   theme_classic() +
   # Additional paramaters for displaying plot
-  theme(text=element_text(size=18), title=element_text(size=18))
+  theme(text=element_text(size=10), title=element_text(size=12))
 
 # Call plot
 year.plot
 
 # Write figure to pdf file in the figures folder: 
-ggsave('figures/scatterplot_proportion_year.pdf', dpi = 300)
+# ggsave('figures/scatterplot_proportion_year.pdf', year.plot, dpi = 300)
 
 # Proportion of 'Page's by sex (categorical predictor)
 sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
@@ -87,4 +77,4 @@ sex.plot = ggplot(data_figs, aes(x = sex, y = prop_log10, fill=sex))+
 sex.plot
 
 # Write figure to pdf file: 
-ggsave('figures/boxplot_propotion_by_sex.pdf', dpi = 300)
+# ggsave('figures/boxplot_propotion_by_sex.pdf', sex.plot, dpi = 300)
