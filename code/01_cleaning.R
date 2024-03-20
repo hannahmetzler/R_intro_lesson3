@@ -1,9 +1,12 @@
 ## LOAD PACKAGES ####
 library(dplyr)
+library(readr)
 
 ## READ IN DATA ####
 data = readr::read_tsv("data/lesson2_data_babynames.txt")
-
+head(data)
+glimpse(data)
+        
 # ##  This dataset was extracted from the package babynames like this: 
 # library(babynames)
 # data(babynames)
@@ -14,11 +17,11 @@ data = readr::read_tsv("data/lesson2_data_babynames.txt")
 ## CLEAN DATA ####
 data_clean = data %>%
   # Look at only one name
-  filter(name == "Page") %>%
+  filter(name == "Page") %>% 
   # Only look at data from after year 1900
   filter(year > 1900) %>%
   # Only look at data up to the year 2000 
-  filter(year <= 2013) %>% 
+  filter(year <= 2000) 
   # Add log transforms for log base 10
   mutate(prop_log10 = log10(prop))
 
