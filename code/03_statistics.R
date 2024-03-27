@@ -1,14 +1,12 @@
 ## READ IN DATA ####
 source("code/01_cleaning.R")
 
-
 ## LOAD PACKAGES #####
 # [none currently needed]
 
 
 ## ORGANIZE DATA ####
 data_stats = data_clean
-
 
 ## BUILD MODEL - PROPORTION OF 'PAGE'S BY YEAR (CONTINUOUS PREDICTOR) ####
 # Make linear regression model
