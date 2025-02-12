@@ -27,7 +27,7 @@ data_clean = data %>%
   # Only look at data from after year 1900
   filter(year > 1900) %>%
   # Only look at data up to the year 2000 
-  filter(year <= 2000) 
+  filter(year <= 2000) %>%
   # Add log transforms for log base 10
   mutate(prop_log10 = log10(prop))
 
