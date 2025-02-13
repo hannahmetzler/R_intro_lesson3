@@ -6,7 +6,7 @@ library(readr)
 data = readr::read_tsv("data/lesson2_data_babynames.txt")
 summary(data)
 
-# read in with column type specification: 
+## read in with column type specification: 
 data = readr::read_tsv("data/lesson2_data_babynames.txt", col_types = 'iffin')
 head(data)
 summary(data)
