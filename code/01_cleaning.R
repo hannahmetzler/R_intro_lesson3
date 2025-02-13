@@ -14,11 +14,13 @@ glimpse(data)
 
         
 # ##  This dataset was extracted from the package babynames like this: 
-# library(babynames)
-# data(babynames)
-# data = babynames %>%
-#   filter(name %in% c("Page", "Ashley", "Hannah", "Florian", "Dominco", "Helena", "Rouven", "Stefanie", "Oona", "Karin", "Prabath", "Teresa", "Caroline", "Karina", "Ahmad", "Charmaine", "Mohammad", "Clarice", "Hanne", "Lav", "Magdalena", "Claudia"))
-# readr::write_tsv(data, file = "data/lesson2_data_babynames.txt")
+library(babynames)
+data(babynames)
+data = babynames %>%
+  #select names of this years participants from the big dataframe
+  filter(name %in% c("Ann-Kristin", "Anna", "Dario", "Dominik", "Eirini", "Felipe", "Gina", "Magdalena", 
+                     "Malika", "Pavithren", "Prabath", "Sarafina", "Tamina", "Tanja", "Thomas", "Johannes"))
+readr::write_tsv(data, file = "data/lesson2_data_babynames2025.txt")
 
 ## CLEAN DATA ####
 data_clean = data %>%
