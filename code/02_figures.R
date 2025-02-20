@@ -79,4 +79,4 @@ sex.plot <- ggplot(data_figs, aes(x = sex, y = prop_log10, fill = sex))+
 sex.plot
 
 # Write figure to pdf file: 
-ggsave('figures/boxplot_propotion_by_sex.pdf', sex.plot, dpi = 300)
+# ggsave('figures/boxplot_propotion_by_sex.pdf', sex.plot, dpi = 300)
